@@ -90,8 +90,6 @@ char* get_sig(uint32_t index, int offset, int length, unsigned char* dst)
 {
 	uint32_t index_tmp;
 	const unsigned char *base_address;
-	// printf("index = %x\n" ,index);
-
 	if (ENDIANNESS == 'l')
 	{
 		index_tmp = BigLittleSwap32(index); // 小端情况，如PC架构
@@ -100,7 +98,6 @@ char* get_sig(uint32_t index, int offset, int length, unsigned char* dst)
 	{
 		index_tmp = index; // 大端序，如MIPS架构
 	}
-	printf("h3c_AES_MD5!\n");
 	switch (index_tmp) // this line works in mips.
 	{
 	case 0x89D115D0:base_address = x89D115D0; break;
